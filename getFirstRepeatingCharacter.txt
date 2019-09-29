@@ -1,0 +1,21 @@
+import java.util.*;
+class Main{
+    public static void main(String...args){
+        String input = "Green Apple";
+        System.out.println(getFirstRepeatingCharacter(input));
+    }
+    
+    public static char getFirstRepeatingCharacter(String input){
+        var characters = input.toCharArray();
+        HashSet<Character> set = new HashSet<>();
+        for(var character : characters){
+            if(set.contains(character)){
+                return character;
+            }
+            else{
+                set.add(character);
+            }
+        }
+        return Character.MIN_VALUE;
+    }
+}
