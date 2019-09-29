@@ -1,0 +1,25 @@
+import java.util.*;
+class Main{
+    public static void main(String...args){
+        String s = "A Green Apple";
+        System.out.println(getFirstNonRepeatingCharacter(s.toLowerCase()));
+    }
+    private static char getFirstNonRepeatingCharacter(String s){
+        HashMap<Character, Integer> map = new HashMap<>();
+        var chars = s.toCharArray();
+        
+        for(var item : chars){
+                var count = map.containsKey(item) ? map.get(item) : 0;
+                map.put(item, count+1);
+        }
+        
+        System.out.println(map);
+        
+        for(var ch : chars){
+            if(map.get(ch) == 1){
+                return ch; 
+            }
+        }
+        return Character.MIN_VALUE;
+    } 
+}
